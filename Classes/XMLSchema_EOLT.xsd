@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema_EOLT"
+    targetNamespace="http://tempuri.org/XMLSchema_EOLT.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema_EOLT.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema_EOLT.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="Test_Result">
+    <xs:complexType>
+      <xs:sequence>
+         <!--Unit--> 
+        <xs:element name="Unit" type="UnitType" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+      <!-- Station Number -->
+      <xs:attribute name="StationNumber" type="xs:string" use="required" />
+      <!-- Operator Number -->
+      <xs:attribute name="OperatorNumber" type="xs:string" use="optional" />
+      <!-- Work Order Number -->
+      <xs:attribute name="WorkOrderNumber" type="xs:string" use="optional" />
+      <!-- Product Number -->
+      <xs:attribute name="ProductNumber" type="xs:string" use="required" />
+      <!-- Program Name -->
+      <xs:attribute name="ProgramName" type="xs:string" use="required" />
+      <!-- DUT Start DateTime -->
+      <xs:attribute name="DUTDateTimeStart" type="xs:dateTime" use="required" />
+      <!-- DUT End DateTime -->
+      <xs:attribute name="DUTDateTimeEnd" type="xs:dateTime" use="required" />
+      <!-- TestTime -->
+      <xs:attribute name="TestTime" type="xs:int" use="optional" default="0" />
+    </xs:complexType>
+  </xs:element>
+   <!-- Unit -->
+  <xs:complexType name="UnitType">
+    <xs:sequence>
+      <!-- Unit Measurement (list of measurements) -->
+      <xs:element name="Measurement" type="MeasurementType" minOccurs="0" maxOccurs="unbounded" />
+      <!-- Unit FS Measurement (list of FS measurements) -->
+      <xs:element name="FSMeasurement" type="FSMeasurementType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <!-- Serial Number for DMC -->
+    <xs:attribute name="LaserDMC" type="xs:string" use="optional"/>
+    <!-- Serial Number for Running number-->
+    <xs:attribute name="SerialNumber" type="xs:string" use="required" />
+    <!-- Retry count for checking the unit -->
+    <xs:attribute name="RetryCount" type="xs:int" default="1"/>
+    <!-- Unit Under Test Station -->
+    <xs:attribute name="Station" type="xs:int" use="required" />
+    <!-- Unit Under Test Fixture ID -->
+    <xs:attribute name="FixtureID" type="xs:int" use="optional" default="0" />
+    <!-- StatusCode -->
+    <xs:attribute name="Status" type="UnitStatus" use="required" />
+    <!-- Test DateTime -->
+    <xs:attribute name="TestTimeStart" type="xs:dateTime" use="required" />
+    <!-- Test DateTime -->
+    <xs:attribute name="TestTimeEnd" type="xs:dateTime" use="required" />
+    <!-- Unit TestTime -->
+    <xs:attribute name="UnitTestTime" type="xs:int" use="optional" default="0" />    
+    <!-- TESTMODE -->
+    <xs:attribute name="TESTMODE" type="TestMode"/>
+  </xs:complexType>
+   <!-- Measurement -->
+  <xs:complexType name="MeasurementType">
+    <!-- Measurement Step Number -->
+    <xs:attribute name="StepNumber" type="xs:short" use="optional" />
+    <!-- Measurement Name -->
+    <xs:attribute name="Name" type="xs:string" use="required" />
+    <!-- Measurement Upper Limit -->
+    <xs:attribute name="Max" type="xs:string" use="optional" />
+    <!-- Measurement Lower limit-->
+    <xs:attribute name="Min" type="xs:string" use="optional" />
+    <!-- Measurement Value -->
+    <xs:attribute name="Value" type="xs:string" use="required" />
+    <!-- Measurement Value type (enum - int or double) -->
+    <xs:attribute name="Unit" type="xs:string" use="required" />
+    <!-- Measurement StatusCode -->
+    <xs:attribute name="StatusCode" type="MeasurementStatus" use="required" />
+    <!-- Measurement DateTime -->
+    <xs:attribute name="DateTimeStart" type="xs:dateTime" use="optional" />
+    <!-- Measurement DateTime -->
+    <xs:attribute name="DateTimeEnd" type="xs:dateTime" use="optional" />
+    <!-- Measurement TestTime -->
+    <xs:attribute name="MeasurementTestTime" type="xs:int" use="optional" default="0" />
+  </xs:complexType>
+   <!-- FS Measurement -->
+  <xs:complexType name="FSMeasurementType">
+    <!-- KeyName -->
+    <xs:attribute name="KeyName" type="xs:string" />
+    <!-- Force -->
+    <xs:attribute name="Force" type="xs:double" use="optional" />
+    <!-- Measurement Name -->
+    <xs:attribute name="Stroke" type="xs:double" use="optional" />
+    <!-- Measurement Upper Limit -->
+    <xs:attribute name="Switch" type="xs:int" use="optional" />
+    <!-- Measurement Lower limit-->
+    <xs:attribute name="Remark" type="xs:string" use="optional" />
+    <!-- Measurement Value -->
+    <xs:attribute name="StartTime" type="xs:time" use="optional" />
+    <!-- Measurement Value type (enum - int or double) -->
+    <xs:attribute name="ID" type="xs:long" use="optional" />
+  </xs:complexType>
+  <!-- Status Code (enum) -->
+  <xs:simpleType name="UnitStatus">
+    <xs:restriction base="xs:string">
+      <!-- Test Passed -->
+      <xs:enumeration value="PASS" />
+      <!-- Test Failed -->
+      <xs:enumeration value="FAIL" />
+      <!-- Test Interrupted -->
+      <xs:enumeration value="INTERRUPTED" />
+      <!-- Testing -->
+      <xs:enumeration value="TESTING" />
+      <!-- WAITFORTEST -->
+      <xs:enumeration value="WAITFORTEST" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- TestMode (string) -->
+  <xs:simpleType name="TestMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mass Production" />
+      <xs:enumeration value="Daily Check" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Allowed status codes for measurement -->
+    <xs:simpleType name="MeasurementStatus">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="WaitforTest" />
+        <xs:enumeration value="Testing" />
+        <xs:enumeration value="PASS" />
+        <xs:enumeration value="FAIL" />
+        <xs:enumeration value="Error" />
+        <xs:enumeration value="NotTested" />
+        <xs:enumeration value="Disabled" />
+        <xs:enumeration value="Unknown" />
+        <xs:enumeration value="NotCoherent" />
+        <xs:enumeration value="NotValueCheck" />
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C87D65D-3A2D-47CA-B0E2-4DA05612D3B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>RSA.My.MyApplication</StartupObject>
+    <RootNamespace>RSA</RootNamespace>
+    <AssemblyName>EOL_TestBench</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EOL_TestBench.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>ENABLE_HARDWARE=TRUE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EOL_TestBench.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Valeo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libnodave.net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\libnodave.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\DotNET\Assemblies\Current\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.DAQmx">
+      <HintPath>..\DLLs\NationalInstruments.DAQmx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="NationalInstruments" />
+    <Import Include="RSA.NationalInstruments" />
+    <Import Include="RSA.NationalInstruments.EmbeddedNetworks" />
+    <Import Include="RSA.NationalInstruments.EmbeddedNetworks.Interop" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\cEmptyClass.vb" />
+    <Compile Include="Classes\cGlobalSettings.vb" />
+    <Compile Include="Classes\cMD5_Crypto.vb" />
+    <Compile Include="Classes\cLINInterface.vb" />
+    <Compile Include="Classes\cPLCDataBlock.vb" />
+    <Compile Include="Classes\cPLCVariable.vb" />
+    <Compile Include="Classes\cRunningTime.vb" />
+    <Compile Include="Classes\cWS05Recipe.vb" />
+    <Compile Include="Classes\cWS05Results.vb" />
+    <Compile Include="Classes\cWS04Recipe.vb" />
+    <Compile Include="Classes\cWS04Results.vb" />
+    <Compile Include="Classes\cWS02Results.vb" />
+    <Compile Include="Classes\cVIPA.vb" />
+    <Compile Include="Classes\cWS02Recipe.vb" />
+    <Compile Include="Classes\cLINFrame.vb" />
+    <Compile Include="Classes\cRecipeValue.vb" />
+    <Compile Include="Classes\cResultValue.vb" />
+    <Compile Include="Classes\cWS03Recipe.vb" />
+    <Compile Include="Classes\cWS03Results.vb" />
+    <Compile Include="Classes\cTCPClient.vb" />
+    <Compile Include="Classes\cTCPServer.vb" />
+    <Compile Include="Classes\cTTIPowerSupply.vb" />
+    <Compile Include="Classes\GenerateXMLResult.vb" />
+    <Compile Include="Classes\XMLSchema_EOLT.vb" />
+    <Compile Include="Forms\frmDUTStats.Designer.vb">
+      <DependentUpon>frmDUTStats.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDUTStats.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPLC.Designer.vb">
+      <DependentUpon>frmPLC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPLC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProduction.designer.vb">
+      <DependentUpon>frmProduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTestLoop.Designer.vb">
+      <DependentUpon>frmTestLoop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTestLoop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHapticCurve.Designer.vb">
+      <DependentUpon>frmHapticCurve.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHapticCurve.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCheckMaster.Designer.vb">
+      <DependentUpon>frmCheckMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCheckMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChoiceCopyFrom.Designer.vb">
+      <DependentUpon>frmChoiceCopyFrom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChoiceCopyFrom.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCopyTo.Designer.vb">
+      <DependentUpon>frmCopyTo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCopyTo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAlarms.Designer.vb">
+      <DependentUpon>frmAlarms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAlarms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCalibration.Designer.vb">
+      <DependentUpon>frmCalibration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCalibration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEnterRange.designer.vb">
+      <DependentUpon>frmEnterRange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEnterRange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmEnterValue.designer.vb">
+      <DependentUpon>frmEnterValue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmEnterValue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLog.Designer.vb">
+      <DependentUpon>frmLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMainMenu.Designer.vb">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMaintenance_EOL.Designer.vb">
+      <DependentUpon>frmMaintenance_EOL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMaintenance_EOL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMessage.Designer.vb">
+      <DependentUpon>frmMessage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMessage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipeSelection.Designer.vb">
+      <DependentUpon>frmRecipeSelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipeSelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipes.Designer.vb">
+      <DependentUpon>frmRecipes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResults.Designer.vb">
+      <DependentUpon>frmResults.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResults.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSoftwareRevisions.Designer.vb">
+      <DependentUpon>frmSoftwareRevisions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSoftwareRevisions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTricks.Designer.vb">
+      <DependentUpon>frmTricks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTricks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserManager.Designer.vb">
+      <DependentUpon>frmUserManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUserManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\mPLC.vb" />
+    <Compile Include="Modules\mWS04_05AIOManager.vb" />
+    <Compile Include="Modules\mWS05AIOManager.vb" />
+    <Compile Include="Modules\mWS05DIOManager.vb" />
+    <Compile Include="Modules\mWS05Ethernet.vb" />
+    <Compile Include="Modules\mWS05Main.vb" />
+    <Compile Include="Modules\mWS04AIOManager.vb" />
+    <Compile Include="Modules\mWS04DIOManager.vb" />
+    <Compile Include="Modules\mWS04Ethernet.vb" />
+    <Compile Include="Modules\mWS04Main.vb" />
+    <Compile Include="Modules\mColor_Analysis.vb" />
+    <Compile Include="Modules\mColor_Conversion.vb" />
+    <Compile Include="Modules\mWS02Ethernet.vb" />
+    <Compile Include="Modules\mWS03Ethernet.vb" />
+    <Compile Include="Modules\Temp.vb" />
+    <Compile Include="Modules\mWS02Keyence.vb" />
+    <Compile Include="Modules\mConstants.vb" />
+    <Compile Include="Modules\mDIOManager.vb" />
+    <Compile Include="Modules\mEmptyModule.vb" />
+    <Compile Include="Modules\mGlobal.vb" />
+    <Compile Include="Modules\mWS03DIOManager.vb" />
+    <Compile Include="Modules\mRecipe.vb" />
+    <Compile Include="Modules\mResults.vb" />
+    <Compile Include="Modules\mSettings.vb" />
+    <Compile Include="Modules\mWS03Main.vb" />
+    <Compile Include="Modules\mWS03AIOManager.vb" />
+    <Compile Include="Modules\mStatusBar.vb" />
+    <Compile Include="Modules\mUserManager.vb" />
+    <Compile Include="Modules\mUtility.vb" />
+    <Compile Include="Modules\mWS02AIOManager.vb" />
+    <Compile Include="Modules\mWS02DIOManager.vb" />
+    <Compile Include="Modules\mWS02Main.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="Third parties\niXNET.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmDUTStats.resx">
+      <DependentUpon>frmDUTStats.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPLC.resx">
+      <DependentUpon>frmPLC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProduction.resx">
+      <DependentUpon>frmProduction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTestLoop.resx">
+      <DependentUpon>frmTestLoop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHapticCurve.resx">
+      <DependentUpon>frmHapticCurve.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipes.resx">
+      <DependentUpon>frmRecipes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAlarms.resx">
+      <DependentUpon>frmAlarms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCalibration.resx">
+      <DependentUpon>frmCalibration.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCheckMaster.resx">
+      <DependentUpon>frmCheckMaster.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChoiceCopyFrom.resx">
+      <DependentUpon>frmChoiceCopyFrom.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCopyTo.resx">
+      <DependentUpon>frmCopyTo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEnterRange.resx">
+      <DependentUpon>frmEnterRange.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEnterValue.resx">
+      <DependentUpon>frmEnterValue.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLog.resx">
+      <DependentUpon>frmLog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMaintenance_EOL.resx">
+      <DependentUpon>frmMaintenance_EOL.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMessage.resx">
+      <DependentUpon>frmMessage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipeSelection.resx">
+      <DependentUpon>frmRecipeSelection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResults.resx">
+      <DependentUpon>frmResults.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSoftwareRevisions.resx">
+      <DependentUpon>frmSoftwareRevisions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTricks.resx">
+      <DependentUpon>frmTricks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserManager.resx">
+      <DependentUpon>frmUserManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MRA2 Full.png" />
+    <None Include="Images\Cie650_730.png" />
+    <Content Include="Images\Logo Valeo.jpg" />
+    <Content Include="Images\Valeo.ico" />
+    <Content Include="obj\x86\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <None Include="Resources\Voiture.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="obj\x86\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
